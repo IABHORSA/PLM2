@@ -1,0 +1,31 @@
+SIMULATORE PLM - come si usa
+
+Contenuto
+  plm-simulazione.html   la pagina (file di prova incorporati)
+  serve.py               server di prova con intestazioni HTTP vere (serve Python 3)
+  assets/                gli stessi file di prova: PDF, JPG, XLS, XLSX, DXF
+
+Prova rapida (nessuna installazione)
+  Copia plm-simulazione.html sul tablet e aprilo con il browser da provare.
+  Metodi Blob e Data URI funzionano da soli. Il tipo dichiarato (Content-Type)
+  viene impostato dalla pagina.
+
+Prova con intestazioni vere (consigliata per riprodurre il problema del cliente)
+  1. Sul PC apri un terminale nella cartella e lancia:  python serve.py
+  2. Dal tablet apri l'indirizzo mostrato, es. http://192.168.1.20:8000/
+  3. Scegli Metodo "Server di prova", poi Tipo dichiarato e Content-Disposition.
+  4. Premi Scarica: il registro mostra le intestazioni che il tablet ha ricevuto.
+  Se il tablet non si collega, controlla il firewall di Windows sulla porta 8000.
+
+Come leggere il risultato sul tablet
+  - Il file si apre con il tipo "Corretto" e non con "application/octet-stream":
+    il problema e' nel tipo dichiarato dal server.
+  - Non si apre nemmeno con il tipo corretto: manca un'app che apra quel formato
+    o il kiosk non la lascia partire (per Excel serve Excel o Google Sheets).
+  - Il browser non segnala la fine del download: controlla la cartella Download.
+
+Aggiungi un tuo file
+  Il pulsante "Aggiungi un tuo file" carica un file del dispositivo (anche un DWG
+  o un file vero del cliente) e lo prova con il metodo Blob.
+
+Tutti i dati sono di esempio.
